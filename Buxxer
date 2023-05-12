@@ -1,0 +1,38 @@
+#define NOTE_C4 262
+#define NOTE_G3 196
+#define NOTE_A3 220
+#define NOTE_B3 247/*
+  AnalogReadSerial
+
+  Reads an analog input on pin 0, prints the result to the Serial Monitor.
+  Graphical representation is available using Serial Plotter (Tools > Serial Plotter menu).
+  Attach the center pin of a potentiometer to pin A0, and the outside pins to +5V and ground.
+
+  This example code is in the public domain.
+
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/AnalogReadSerial
+*/
+int melody[]={
+  NOTE_C4, NOTE_G3, NOTE_C4, NOTE_G3, NOTE_C4, NOTE_G3, NOTE_C4,NOTE_G3
+};
+int noteDurations[]={
+  8,8,4,4,8,8,4,4
+  };
+// the setup routine runs once when you press reset:
+void setup() {
+  // iterate over the notes of the melody:
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+  // no need to repeat the melody.
+  //iterate over the notes of the melody:
+  for(int thisNote=0;thisNote<8;thisNote++){
+    int noteDuration=1000/noteDurations[thisNote];
+    tone(8,melody[thisNote],noteDuration);
+    int pauseBetweenNotes=noteDuration*1.30;
+    delay(pauseBetweenNotes);
+    noTone(8);
+  }
+  delay(200);
+}
